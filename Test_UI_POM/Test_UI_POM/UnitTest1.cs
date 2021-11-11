@@ -89,7 +89,7 @@ namespace Test_UI_POM
 
         [Test]
 
-        public void EditProfilePageTesting()
+        public void AccountingSettings_General_Info()
         {
             IWebElement logInButton1 = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx " +
                 "Navbar__login--28b35\"]"));
@@ -108,41 +108,48 @@ namespace Test_UI_POM
             IWebElement avatarIcon = driver.FindElement(By.CssSelector("[class=\"AvatarClient__avatar--3TC7_\"]"));
             avatarIcon.Click();
             wait.Until(ExpectedConditions.ElementExists(By.CssSelector("div[class=\"header header_type_page\"]")));
-            IWebElement editPencilName = driver.FindElement(By.CssSelector("[class='ng-untouched ng-pristine ng-valid'] [class='edit-switcher__icon_type_edit']"));
-            editPencilName.Click();
-            IWebElement firstNameField = driver.FindElement(By.CssSelector("[formcontrolname=\"first_name\"]"));
-            firstNameField.SendKeys("Tion");
-            IWebElement editName = driver.FindElement(By.CssSelector("[class=\"input__self input__self_type_text-underline" +
-                " ng-pristine ng-valid ng-touched\"]"));
-            editName.SendKeys("ly");
-            IWebElement editEmailPassword = driver.FindElement(By.XPath("body > nb-app > ng-component > nb-internal-layout > common-layout > section > div > ng-component > nb-account-info-edit > common-border > div:nth-child(1) > div > nb-account-info-general-information > form > div:nth-child(1) > div > nb-edit-switcher > div > div"));
-            editEmailPassword.Click();
-            IWebElement verifEmailPassword = driver.FindElement(By.CssSelector("class [type ='text']"));
-            verifEmailPassword.SendKeys("14finans14Se*");
-            IWebElement saveEdit = driver.FindElement(By.CssSelector("[type='submit']"));
-            saveEdit.Click();
-            IWebElement cardNumber = driver.FindElement(By.CssSelector("[name='company_website']"));
-            cardNumber.SendKeys("5551046548903454");
-            IWebElement expCartDate = driver.FindElement(By.CssSelector("[name='exp-date']"));
-            expCartDate.SendKeys("0523");
-            IWebElement cvc = driver.FindElement(By.CssSelector("[name='cvc']"));
-            cvc.SendKeys("341");
-            IWebElement saveCard = driver.FindElement(By.CssSelector("[type='submit']"));
-            saveCard.Click();
-            IWebElement editPhoneNum = driver.FindElement(By.XPath("/html/body/nb-app/ng-component/" +
-                "nb-internal-layout/common-layout/section/div/ng-component/nb-account-info-edit/common-border" +
-                "/div[5]/div/nb-account-info-phone/div[1]/div/nb-edit-switcher/div/div"));
-            editPhoneNum.Click();
-            IWebElement currentPassword = driver.FindElement(By.CssSelector("[class=\"ng-pristine ng-valid " +
-                "input__self input__self_error input__self_type_password-underline ng-touched\"]"));
-            currentPassword.SendKeys("14finans14Se*");
-            IWebElement phoneNum = driver.FindElement(By.CssSelector("[class=\"ng-pristine ng-valid input__self " +
-                "input__self_error input__self_type_text-underline ng-touched\"]"));
-            phoneNum.SendKeys("5678762345");
-            IWebElement saveinfo = driver.FindElement(By.CssSelector("[type='submit']"));
-            saveinfo.Click();
-            Assert.AreEqual("https://newbookmodels.com/explore", driver.Url);
+            IWebElement editForFirstName = driver.FindElement(By.CssSelector("[class='ng-untouched ng-pristine ng-valid'] [class='edit-switcher__icon_type_edit']"));
+            editForFirstName.Click();
+            IWebElement firstNameField = driver.FindElement(By.CssSelector("input[placeholder='Enter First Name']"));
+            firstNameField.SendKeys("Tionel");
+            IWebElement lastNameField = driver.FindElement(By.CssSelector("input[placeholder='Enter Last Name']"));
+            lastNameField.SendKeys("Jupiterya");
+            IWebElement locationField = driver.FindElement(By.CssSelector("input[placeholder='Enter Company Location']"));
+            locationField.SendKeys("Sacramento St, San Francisco, CA, USA");
+            IWebElement indastryField = driver.FindElement(By.CssSelector("input[placeholder='Enter Industry']"));
+            indastryField.SendKeys("Apparel");
+            IWebElement safeGeneralInfo = driver.FindElement(By.CssSelector("[type=\"submit\"]"));
+            safeGeneralInfo.Click();
+            Assert.AreEqual("https://newbookmodels.com/account-settings/account-info/edit", driver.Url);
         }
+        //    IWebElement currentEmailPassword = driver.FindElement(By.CssSelector("input[placeholder='Enter Password']"));
+        //    currentEmailPassword.SendKeys("14finans14Se*");
+        //    IWebElement newEmail = driver.FindElement(By.CssSelector("input[placeholder='Enter E-mail']"));
+        //    newEmail.SendKeys("tedfdnb@gmail.com");
+        //    IWebElement saveEdit = driver.FindElement(By.CssSelector("[type='submit']"));
+        //    saveEdit.Click();
+        //    IWebElement cardNumber = driver.FindElement(By.CssSelector("[name='company_website']"));
+        //    cardNumber.SendKeys("5551046548903454");
+        //    IWebElement expCartDate = driver.FindElement(By.CssSelector("[name='exp-date']"));
+        //    expCartDate.SendKeys("0523");
+        //    IWebElement cvc = driver.FindElement(By.CssSelector("[name='cvc']"));
+        //    cvc.SendKeys("341");
+        //    IWebElement saveCard = driver.FindElement(By.CssSelector("[type='submit']"));
+        //    saveCard.Click();
+        //    IWebElement editPhoneNum = driver.FindElement(By.XPath("/html/body/nb-app/ng-component/" +
+        //        "nb-internal-layout/common-layout/section/div/ng-component/nb-account-info-edit/common-border" +
+        //        "/div[5]/div/nb-account-info-phone/div[1]/div/nb-edit-switcher/div/div"));
+        //    editPhoneNum.Click();
+        //    IWebElement currentPassword = driver.FindElement(By.CssSelector("[class=\"ng-pristine ng-valid " +
+        //        "input__self input__self_error input__self_type_password-underline ng-touched\"]"));
+        //    currentPassword.SendKeys("14finans14Se*");
+        //    IWebElement phoneNum = driver.FindElement(By.CssSelector("[class=\"ng-pristine ng-valid input__self " +
+        //        "input__self_error input__self_type_text-underline ng-touched\"]"));
+        //    phoneNum.SendKeys("5678762345");
+        //    IWebElement saveinfo = driver.FindElement(By.CssSelector("[type='submit']"));
+        //    saveinfo.Click();
+        //    Assert.AreEqual("https://newbookmodels.com/explore", driver.Url);
+        //}
         [Test]
 
         public void AddImageAvatar()
