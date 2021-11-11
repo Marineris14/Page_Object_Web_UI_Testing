@@ -175,91 +175,91 @@ namespace Test_UI_POM
 
         [Test]
 
-            public void AddImageAvatar()
-            {
-                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
-                IWebElement element = wait.Until(SeleniumExtras
-                    .WaitHelpers
-                    .ExpectedConditions
-                    .ElementIsVisible(By.CssSelector("[class *='Navbar__signUp--12ZDV']")));
-                IWebElement SignUpButton = driver.FindElement(By.CssSelector("[class *='Navbar__signUp--12ZDV']"));
-                SignUpButton.Click();
-                IWebElement avatarIcon = driver.FindElement(By.CssSelector("[class *='FileInput__container--DGYl- SignupAvatar__avatarFieldInner--Tu71w']"));
-                avatarIcon.Click();
-                Assert.AreEqual("https://newbookmodels.com/explore", driver.Url);
-            }
+        public void AddImageAvatar()
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            IWebElement element = wait.Until(SeleniumExtras
+                .WaitHelpers
+                .ExpectedConditions
+                .ElementIsVisible(By.CssSelector("[class *='Navbar__signUp--12ZDV']")));
+            IWebElement SignUpButton = driver.FindElement(By.CssSelector("[class *='Navbar__signUp--12ZDV']"));
+            SignUpButton.Click();
+            IWebElement avatarIcon = driver.FindElement(By.CssSelector("[class *='FileInput__container--DGYl- SignupAvatar__avatarFieldInner--Tu71w']"));
+            avatarIcon.Click();
+            Assert.AreEqual("https://newbookmodels.com/explore", driver.Url);
+        }
 
-            [Test]
-            public void LogIn()
-            {
-                IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
-                logInButton.Click();
-                driver.SwitchTo().Window(driver.WindowHandles.Last());
-                string title = driver.Title;
-                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
-                IWebElement logInEmailField = driver.FindElement(By.CssSelector("[class *= 'Input__input--_88SI Input__themeNewbook--1IRjd Input__fontRegular--2SStp']"));
-                logInEmailField.SendKeys("marineriscr@gmail.com");
-                IWebElement logInPasswordField = driver.FindElement(By.CssSelector("[name=\"password\"]"));
-                logInPasswordField.SendKeys("14finans14Se*");
-                IWebElement autologInButton = driver.FindElement(By.CssSelector("[type=\"submit\"]"));
-                autologInButton.Click();
-                Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
-            }
+        [Test]
+        public void LogIn()
+        {
+            IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
+            logInButton.Click();
+            driver.SwitchTo().Window(driver.WindowHandles.Last());
+            string title = driver.Title;
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            IWebElement logInEmailField = driver.FindElement(By.CssSelector("[class *= 'Input__input--_88SI Input__themeNewbook--1IRjd Input__fontRegular--2SStp']"));
+            logInEmailField.SendKeys("marineriscr@gmail.com");
+            IWebElement logInPasswordField = driver.FindElement(By.CssSelector("[name=\"password\"]"));
+            logInPasswordField.SendKeys("14finans14Se*");
+            IWebElement autologInButton = driver.FindElement(By.CssSelector("[type=\"submit\"]"));
+            autologInButton.Click();
+            Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
+        }
 
-            [Test]
+        [Test]
 
-            public void LogOut()
-            {
-                IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
-                logInButton.Click();
-                driver.SwitchTo().Window(driver.WindowHandles.Last());
-                string title = driver.Title;
-                IWebElement logInEmailField = driver.FindElement(By.CssSelector("[class *= 'Input__input--_88SI Input__themeNewbook--1IRjd Input__fontRegular--2SStp']"));
-                logInEmailField.SendKeys("marineriscr@gmail.com");
-                IWebElement logInPasswordField = driver.FindElement(By.CssSelector("[name=\"password\"]"));
-                logInPasswordField.SendKeys("14finans14Se*");
-                IWebElement autologInButton = driver.FindElement(By.CssSelector("[type=\"submit\"]"));
-                autologInButton.Click();
-                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
-                IWebElement element = wait.Until(SeleniumExtras
-                    .WaitHelpers
-                    .ExpectedConditions
-                    .ElementIsVisible(By.CssSelector("[class=\"AvatarClient__avatar--3TC7_\"]")));
-                Assert.AreEqual("https://newbookmodels.com/explore", driver.Url);
-                IWebElement avatarIconForExit = driver.FindElement(By.CssSelector("[class=\"AvatarClient__avatar--3TC7_\"]"));
-                avatarIconForExit.Click();
-                Actions action = new Actions(driver);
-                action.SendKeys(Keys.PageDown).Perform();
-                action.SendKeys(Keys.PageDown).Perform();
-                action.SendKeys(Keys.PageDown).Perform();
-                IWebElement exit = driver.FindElement(By.CssSelector("[class=\"link link_type_logout link_active\"]"));
-                exit.Click();
-                Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
-            }
+        public void LogOut()
+        {
+            IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
+            logInButton.Click();
+            driver.SwitchTo().Window(driver.WindowHandles.Last());
+            string title = driver.Title;
+            IWebElement logInEmailField = driver.FindElement(By.CssSelector("[class *= 'Input__input--_88SI Input__themeNewbook--1IRjd Input__fontRegular--2SStp']"));
+            logInEmailField.SendKeys("marineriscr@gmail.com");
+            IWebElement logInPasswordField = driver.FindElement(By.CssSelector("[name=\"password\"]"));
+            logInPasswordField.SendKeys("14finans14Se*");
+            IWebElement autologInButton = driver.FindElement(By.CssSelector("[type=\"submit\"]"));
+            autologInButton.Click();
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            IWebElement element = wait.Until(SeleniumExtras
+                .WaitHelpers
+                .ExpectedConditions
+                .ElementIsVisible(By.CssSelector("[class=\"AvatarClient__avatar--3TC7_\"]")));
+            Assert.AreEqual("https://newbookmodels.com/explore", driver.Url);
+            IWebElement avatarIconForExit = driver.FindElement(By.CssSelector("[class=\"AvatarClient__avatar--3TC7_\"]"));
+            avatarIconForExit.Click();
+            Actions action = new Actions(driver);
+            action.SendKeys(Keys.PageDown).Perform();
+            action.SendKeys(Keys.PageDown).Perform();
+            action.SendKeys(Keys.PageDown).Perform();
+            IWebElement exit = driver.FindElement(By.CssSelector("[class=\"link link_type_logout link_active\"]"));
+            exit.Click();
+            Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
+        }
 
-            [Test]
-            public void NewbookAppButtonLinkTest_LogIn()
-            {
-                IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
-                logInButton.Click();
-                driver.SwitchTo().Window(driver.WindowHandles.Last());
-                string title = driver.Title;
-                IWebElement NewbookAppLink = driver.FindElement(By.CssSelector("[class *= 'SignInPage__modelLink--22zhX']"));
-                NewbookAppLink.Click();
-                Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
-            }
+        [Test]
+        public void NewbookAppButtonLinkTest_LogIn()
+        {
+            IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
+            logInButton.Click();
+            driver.SwitchTo().Window(driver.WindowHandles.Last());
+            string title = driver.Title;
+            IWebElement NewbookAppLink = driver.FindElement(By.CssSelector("[class *= 'SignInPage__modelLink--22zhX']"));
+            NewbookAppLink.Click();
+            Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
+        }
 
-            [Test]
-            public void NewbookAppButtonLinkTest_SignIn()
-            {
-                IWebElement SignUpButton = driver.FindElement(By.CssSelector("[class *='Navbar__signUp--12ZDV']"));
-                SignUpButton.Click();
-                IWebElement NewbookAppLink = driver.FindElement(By.CssSelector("[class *= 'SignupPageLayout__modelsLink--2zxUb']"));
-                NewbookAppLink.Click();
-                driver.SwitchTo().Window(driver.WindowHandles.Last());
-                string title = driver.Title;
-                Assert.AreEqual("https://apps.apple.com/us/app/newbook/id1316969583?ls=1", driver.Url);
-            }
+        [Test]
+        public void NewbookAppButtonLinkTest_SignIn()
+        {
+            IWebElement SignUpButton = driver.FindElement(By.CssSelector("[class *='Navbar__signUp--12ZDV']"));
+            SignUpButton.Click();
+            IWebElement NewbookAppLink = driver.FindElement(By.CssSelector("[class *= 'SignupPageLayout__modelsLink--2zxUb']"));
+            NewbookAppLink.Click();
+            driver.SwitchTo().Window(driver.WindowHandles.Last());
+            string title = driver.Title;
+            Assert.AreEqual("https://apps.apple.com/us/app/newbook/id1316969583?ls=1", driver.Url);
+        }
 
         [TearDown]
         public void After()
