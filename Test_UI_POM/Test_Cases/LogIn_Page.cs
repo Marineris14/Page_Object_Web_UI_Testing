@@ -21,29 +21,34 @@ namespace Test_Cases
             _webDriver = webDriver;
         }
 
-        public LogIn_Page GoToSignInPage()
+        public LogIn_Page GoToLogInPage()
         {
             _webDriver.Navigate().GoToUrl("https://newbookmodels.com/auth/signin");
             return this;
         }
 
-        public LogIn_Page ImputEmailField(string email)
+        public LogIn_Page EnterInEmailField(string email)
         {
-            _webDriver.FindElement(_emailField).SendKeys(email);
+            _webDriver
+                .FindElement(_emailField)
+                .SendKeys(email);
             return this;
         }
 
-        public LogIn_Page ImputPasswordField(string password)
+        public LogIn_Page EnterInPasswordField(string password)
         {
-            _webDriver.FindElement(_passwordField).SendKeys(password);
+            _webDriver
+                .FindElement(_passwordField)
+                .SendKeys(password);
             return this;
         }
 
-        public void logInButton() => _webDriver.FindElement(_logInButton).Click();
-        public string GetErrorMessageAboutEmail() =>
-        _webDriver.FindElement(_errorMessageForInvalidEmail).Text;
-        public string GetErrorMessageAboutPassword() =>
-        _webDriver.FindElement(_errorMessageForInvalidPassword).Text;
+        public void logInButton() => 
+            _webDriver.FindElement(_logInButton).Click();
+        public string ErrorInEmailInput() =>
+            _webDriver.FindElement(_errorMessageForInvalidEmail).Text;
+        public string ErrorInPasswordInput() =>
+            _webDriver.FindElement(_errorMessageForInvalidPassword).Text;
 
     }
 }
