@@ -261,10 +261,10 @@ namespace Test_UI_POM
                 Assert.AreEqual("https://apps.apple.com/us/app/newbook/id1316969583?ls=1", driver.Url);
             }
 
-            //[TearDown]
-            //public void After()
-            //{
-            //    driver.Dispose();
-            //}
+        [TearDown]
+        public void After()
+        {
+            driver.Dispose();
         }
     }
+}
