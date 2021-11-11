@@ -7,6 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_UI_POM", "Test_UI_POM\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "POM_Pages", "POM_Pages", "{2C0F3FBF-273A-4FE9-8747-4211A621B74E}"
 	ProjectSection(SolutionItems) = preProject
+		Test_Cases\LogIn_Page.cs = Test_Cases\LogIn_Page.cs
 		Test_Cases\SignUp_Page.cs = Test_Cases\SignUp_Page.cs
 	EndProjectSection
 EndProject

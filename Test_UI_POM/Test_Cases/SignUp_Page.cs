@@ -10,40 +10,25 @@ namespace Test_Cases
     class SignUp_Page
     {
         private readonly IWebDriver _webDriver;
-        private readonly By _emailField = By.CssSelector("input[type=email]");
-        private readonly By _passwordField = By.CssSelector("input[type=password]");
-        private readonly By _NextButton = By.CssSelector("button[class^=SignInForm__submitButton]");
-        private readonly By _errorMessageForInvalidEmail = By.XPath("//input[@name = 'email']/../div[@class='FormErrorText__error---nzyq']");
-        private readonly By _errorMessageForInvalidPassword = By.XPath("//input[@name = 'password']/../div[@class='FormErrorText__error---nzyq']/div");
+        private readonly By _SignUpButton = By.CssSelector("[class='Navbar__signUp--12ZDV']");
+        private readonly By _firstNameField = By.CssSelector("[name = 'first_name']");
+        private readonly By _lastNameField = By.CssSelector("[name = 'last_name']");
+        private readonly By _emailField = By.CssSelector("[name='email']");
+        private readonly By _paswordField = By.CssSelector("[name='password']");
+        private readonly By _confirmPaswordField = By.CssSelector("[name='password_confirm']");
+        private readonly By _phoneNumberField = By.CssSelector("[name='phone_number']");
+        private readonly By _nextButton = By.CssSelector("[type='submit']");
+        private readonly By _companyNameField = By.CssSelector("[name='company_name']");
+        private readonly By _companyWebSiteField = By.CssSelector("[name='company_website']");
+        private readonly By _addressField = By.CssSelector("[name='location']");
+        private readonly By _industryList = By.CssSelector("[name='industry']");
+        private readonly By _finishButton = By.CssSelector("[type='submit']");
 
-        public SignUp_Page(IWebDriver webDriver)
-        {
-            _webDriver = webDriver;
-        }
-
-        public SignUp_Page GoToSignInPage()
-        {
-            _webDriver.Navigate().GoToUrl("https://newbookmodels.com/auth/signin");
-            return this;
-        }
-
-        public SignUp_Page ImputEmailField(string email)
-        {
-            _webDriver.FindElement(_emailField).SendKeys(email);
-            return this;
-        }
-
-        public SignUp_Page ImputPasswordField(string password)
-        {
-            _webDriver.FindElement(_passwordField).SendKeys(password);
-            return this;
-        }
-
-        public void NextButton() => _webDriver.FindElement(_NextButton).Click();
-        public string GetErrorMessageAboutEmail() =>
-        _webDriver.FindElement(_errorMessageForInvalidEmail).Text;
-        public string GetErrorMessageAboutPassword() =>
-        _webDriver.FindElement(_errorMessageForInvalidPassword).Text;
-
-    }
-}
+        private readonly By _errorMessageIvalidFirstName = By.XPath("//div[@class='SignupFormLayout__fieldRow--bGt25']//" +
+            "input[@name='first_name']../div[@class = 'FormErrorText__error---nzyq']");
+        private readonly By _errorMessageInvalidLastName = By.XPath("//div[@class='SignupFormLayout__fieldRow--bGt25']//" +
+            "input[@name='last_name']/../div[@class = 'FormErrorText__error---nzyq']");
+        private readonly By _errorMessageInvalidEmail = By.XPath("//div[@class='SignupFormLayout__fieldRow--bGt25']//" +
+            "input[@name='email']/../div[@class = 'FormErrorText__error---nzyq']/div");
+        private readonly By _errorMessageInvalidPassword = By.XPath("//div[@class='SignupFormLayout__fieldRow--bGt25']//" +
+            "input[@name='password']/../div[@class = 'FormErrorText__error---nzyq']");
