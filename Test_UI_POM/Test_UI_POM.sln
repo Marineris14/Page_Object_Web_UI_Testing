@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_UI_POM", "Test_UI_POM\Test_UI_POM.csproj", "{D5946BE4-2198-471E-BCE5-665ABDF14C07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_UI_POM", "Test_UI_POM\Test_UI_POM.csproj", "{D5946BE4-2198-471E-BCE5-665ABDF14C07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "POM_Pages", "POM_Pages", "{2C0F3FBF-273A-4FE9-8747-4211A621B74E}"
+	ProjectSection(SolutionItems) = preProject
+		Test_Cases\SignUp_Page.cs = Test_Cases\SignUp_Page.cs
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_Cases", "Test_Cases\Test_Cases.csproj", "{B6169660-E6AA-4890-B118-941D70389424}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,10 @@ Global
 		{D5946BE4-2198-471E-BCE5-665ABDF14C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5946BE4-2198-471E-BCE5-665ABDF14C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5946BE4-2198-471E-BCE5-665ABDF14C07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6169660-E6AA-4890-B118-941D70389424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6169660-E6AA-4890-B118-941D70389424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6169660-E6AA-4890-B118-941D70389424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6169660-E6AA-4890-B118-941D70389424}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
