@@ -122,126 +122,149 @@ namespace Test_UI_POM
             safeGeneralInfo.Click();
             Assert.AreEqual("https://newbookmodels.com/account-settings/account-info/edit", driver.Url);
         }
-        //    IWebElement currentEmailPassword = driver.FindElement(By.CssSelector("input[placeholder='Enter Password']"));
-        //    currentEmailPassword.SendKeys("14finans14Se*");
-        //    IWebElement newEmail = driver.FindElement(By.CssSelector("input[placeholder='Enter E-mail']"));
-        //    newEmail.SendKeys("tedfdnb@gmail.com");
-        //    IWebElement saveEdit = driver.FindElement(By.CssSelector("[type='submit']"));
-        //    saveEdit.Click();
-        //    IWebElement cardNumber = driver.FindElement(By.CssSelector("[name='company_website']"));
-        //    cardNumber.SendKeys("5551046548903454");
-        //    IWebElement expCartDate = driver.FindElement(By.CssSelector("[name='exp-date']"));
-        //    expCartDate.SendKeys("0523");
-        //    IWebElement cvc = driver.FindElement(By.CssSelector("[name='cvc']"));
-        //    cvc.SendKeys("341");
-        //    IWebElement saveCard = driver.FindElement(By.CssSelector("[type='submit']"));
-        //    saveCard.Click();
-        //    IWebElement editPhoneNum = driver.FindElement(By.XPath("/html/body/nb-app/ng-component/" +
-        //        "nb-internal-layout/common-layout/section/div/ng-component/nb-account-info-edit/common-border" +
-        //        "/div[5]/div/nb-account-info-phone/div[1]/div/nb-edit-switcher/div/div"));
-        //    editPhoneNum.Click();
-        //    IWebElement currentPassword = driver.FindElement(By.CssSelector("[class=\"ng-pristine ng-valid " +
-        //        "input__self input__self_error input__self_type_password-underline ng-touched\"]"));
-        //    currentPassword.SendKeys("14finans14Se*");
-        //    IWebElement phoneNum = driver.FindElement(By.CssSelector("[class=\"ng-pristine ng-valid input__self " +
-        //        "input__self_error input__self_type_text-underline ng-touched\"]"));
-        //    phoneNum.SendKeys("5678762345");
-        //    IWebElement saveinfo = driver.FindElement(By.CssSelector("[type='submit']"));
-        //    saveinfo.Click();
-        //    Assert.AreEqual("https://newbookmodels.com/explore", driver.Url);
-        //}
-        [Test]
 
-        public void AddImageAvatar()
+        public void AccountingSettings_EmailPasswordAndCreditCard()
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
-            IWebElement element = wait.Until(SeleniumExtras
-                .WaitHelpers
-                .ExpectedConditions
-                .ElementIsVisible(By.CssSelector("[class *='Navbar__signUp--12ZDV']")));
-            IWebElement SignUpButton = driver.FindElement(By.CssSelector("[class *='Navbar__signUp--12ZDV']"));
-            SignUpButton.Click();
-            IWebElement avatarIcon = driver.FindElement(By.CssSelector("[class *='FileInput__container--DGYl- SignupAvatar__avatarFieldInner--Tu71w']"));
-            avatarIcon.Click();
-            Assert.AreEqual("https://newbookmodels.com/explore", driver.Url);
-        }
-
-        [Test]
-        public void LogIn()
-        {
-            IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
-            logInButton.Click();
-            driver.SwitchTo().Window(driver.WindowHandles.Last());
-            string title = driver.Title;
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
-            IWebElement logInEmailField = driver.FindElement(By.CssSelector("[class *= 'Input__input--_88SI Input__themeNewbook--1IRjd Input__fontRegular--2SStp']"));
-            logInEmailField.SendKeys("marineriscr@gmail.com");
-            IWebElement logInPasswordField = driver.FindElement(By.CssSelector("[name=\"password\"]"));
-            logInPasswordField.SendKeys("14finans14Se*");
-            IWebElement autologInButton = driver.FindElement(By.CssSelector("[type=\"submit\"]"));
-            autologInButton.Click();
-            Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
-        }
-
-        [Test]
-
-        public void LogOut()
-        {
-            IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
-            logInButton.Click();
-            driver.SwitchTo().Window(driver.WindowHandles.Last());
-            string title = driver.Title;
-            IWebElement logInEmailField = driver.FindElement(By.CssSelector("[class *= 'Input__input--_88SI Input__themeNewbook--1IRjd Input__fontRegular--2SStp']"));
-            logInEmailField.SendKeys("marineriscr@gmail.com");
-            IWebElement logInPasswordField = driver.FindElement(By.CssSelector("[name=\"password\"]"));
-            logInPasswordField.SendKeys("14finans14Se*");
-            IWebElement autologInButton = driver.FindElement(By.CssSelector("[type=\"submit\"]"));
-            autologInButton.Click();
+            IWebElement logInButton1 = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx " +
+                "Navbar__login--28b35\"]"));
+            logInButton1.Click();
+            IWebElement logInEmail = driver.FindElement(By.CssSelector("[type='email']"));
+            logInEmail.SendKeys("marineriscr@gmail.com");
+            IWebElement logInPassword = driver.FindElement(By.CssSelector("[name='password']"));
+            logInPassword.SendKeys("14finans14Se*");
+            IWebElement Finish = driver.FindElement(By.CssSelector("[type='submit']"));
+            Finish.Click();
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
             IWebElement element = wait.Until(SeleniumExtras
                 .WaitHelpers
                 .ExpectedConditions
                 .ElementIsVisible(By.CssSelector("[class=\"AvatarClient__avatar--3TC7_\"]")));
+            IWebElement avatarIcon = driver.FindElement(By.CssSelector("[class=\"AvatarClient__avatar--3TC7_\"]"));
+            avatarIcon.Click();
+            wait.Until(ExpectedConditions.ElementExists(By.CssSelector("div[class=\"header header_type_page\"]")));
+            IWebElement editForEmail = driver.FindElement(By.CssSelector("[class='ng-untouched ng-pristine ng-valid'] [class='edit-switcher__icon_type_edit']"));
+            editForEmail.Click();
+            IWebElement currentEmailPassword = driver.FindElement(By.CssSelector("input[placeholder='Enter Password']"));
+            currentEmailPassword.SendKeys("14finans14Se*");
+            IWebElement newEmail = driver.FindElement(By.CssSelector("input[placeholder='Enter E-mail']"));
+            newEmail.SendKeys("tedfdnb@gmail.com");
+            IWebElement saveEdit = driver.FindElement(By.CssSelector("[type='submit']"));
+            saveEdit.Click();
+            IWebElement cardNumber = driver.FindElement(By.CssSelector("[name='company_website']"));
+            cardNumber.SendKeys("6011000000000004");
+            IWebElement expCartDate = driver.FindElement(By.CssSelector("[name='exp-date']"));
+            expCartDate.SendKeys("12/24");
+            IWebElement cvc = driver.FindElement(By.CssSelector("[name='cvc']"));
+            cvc.SendKeys("123");
+            IWebElement saveCard = driver.FindElement(By.CssSelector("[type='submit']"));
+            saveCard.Click();
+            IWebElement editPhoneNum = driver.FindElement(By.XPath("/html/body/nb-app/ng-component/" +
+                "nb-internal-layout/common-layout/section/div/ng-component/nb-account-info-edit/common-border" +
+                "/div[5]/div/nb-account-info-phone/div[1]/div/nb-edit-switcher/div/div"));
+            editPhoneNum.Click();
+            IWebElement currentPassword = driver.FindElement(By.CssSelector("[class=\"ng-pristine ng-valid " +
+                "input__self input__self_error input__self_type_password-underline ng-touched\"]"));
+            currentPassword.SendKeys("14finans14Se*");
+            IWebElement phoneNum = driver.FindElement(By.CssSelector("[class=\"ng-pristine ng-valid input__self " +
+                "input__self_error input__self_type_text-underline ng-touched\"]"));
+            phoneNum.SendKeys("5678762345");
+            IWebElement saveinfo = driver.FindElement(By.CssSelector("[type='submit']"));
+            saveinfo.Click();
             Assert.AreEqual("https://newbookmodels.com/explore", driver.Url);
-            IWebElement avatarIconForExit = driver.FindElement(By.CssSelector("[class=\"AvatarClient__avatar--3TC7_\"]"));
-            avatarIconForExit.Click();
-            Actions action = new Actions(driver);
-            action.SendKeys(Keys.PageDown).Perform();
-            action.SendKeys(Keys.PageDown).Perform();
-            action.SendKeys(Keys.PageDown).Perform();
-            IWebElement exit = driver.FindElement(By.CssSelector("[class=\"link link_type_logout link_active\"]"));
-            exit.Click();
-            Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
         }
 
         [Test]
-        public void NewbookAppButtonLinkTest_LogIn()
-        {
-            IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
-            logInButton.Click();
-            driver.SwitchTo().Window(driver.WindowHandles.Last());
-            string title = driver.Title;
-            IWebElement NewbookAppLink = driver.FindElement(By.CssSelector("[class *= 'SignInPage__modelLink--22zhX']"));
-            NewbookAppLink.Click();
-            Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
-        }
 
-        [Test]
-        public void NewbookAppButtonLinkTest_SignIn()
-        {
-            IWebElement SignUpButton = driver.FindElement(By.CssSelector("[class *='Navbar__signUp--12ZDV']"));
-            SignUpButton.Click();
-            IWebElement NewbookAppLink = driver.FindElement(By.CssSelector("[class *= 'SignupPageLayout__modelsLink--2zxUb']"));
-            NewbookAppLink.Click();
-            driver.SwitchTo().Window(driver.WindowHandles.Last());
-            string title = driver.Title;
-            Assert.AreEqual("https://apps.apple.com/us/app/newbook/id1316969583?ls=1", driver.Url);
-        }
+            public void AddImageAvatar()
+            {
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+                IWebElement element = wait.Until(SeleniumExtras
+                    .WaitHelpers
+                    .ExpectedConditions
+                    .ElementIsVisible(By.CssSelector("[class *='Navbar__signUp--12ZDV']")));
+                IWebElement SignUpButton = driver.FindElement(By.CssSelector("[class *='Navbar__signUp--12ZDV']"));
+                SignUpButton.Click();
+                IWebElement avatarIcon = driver.FindElement(By.CssSelector("[class *='FileInput__container--DGYl- SignupAvatar__avatarFieldInner--Tu71w']"));
+                avatarIcon.Click();
+                Assert.AreEqual("https://newbookmodels.com/explore", driver.Url);
+            }
 
-        //[TearDown]
-        //public void After()
-        //{
-        //    driver.Dispose();
-        //}
+            [Test]
+            public void LogIn()
+            {
+                IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
+                logInButton.Click();
+                driver.SwitchTo().Window(driver.WindowHandles.Last());
+                string title = driver.Title;
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+                IWebElement logInEmailField = driver.FindElement(By.CssSelector("[class *= 'Input__input--_88SI Input__themeNewbook--1IRjd Input__fontRegular--2SStp']"));
+                logInEmailField.SendKeys("marineriscr@gmail.com");
+                IWebElement logInPasswordField = driver.FindElement(By.CssSelector("[name=\"password\"]"));
+                logInPasswordField.SendKeys("14finans14Se*");
+                IWebElement autologInButton = driver.FindElement(By.CssSelector("[type=\"submit\"]"));
+                autologInButton.Click();
+                Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
+            }
+
+            [Test]
+
+            public void LogOut()
+            {
+                IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
+                logInButton.Click();
+                driver.SwitchTo().Window(driver.WindowHandles.Last());
+                string title = driver.Title;
+                IWebElement logInEmailField = driver.FindElement(By.CssSelector("[class *= 'Input__input--_88SI Input__themeNewbook--1IRjd Input__fontRegular--2SStp']"));
+                logInEmailField.SendKeys("marineriscr@gmail.com");
+                IWebElement logInPasswordField = driver.FindElement(By.CssSelector("[name=\"password\"]"));
+                logInPasswordField.SendKeys("14finans14Se*");
+                IWebElement autologInButton = driver.FindElement(By.CssSelector("[type=\"submit\"]"));
+                autologInButton.Click();
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+                IWebElement element = wait.Until(SeleniumExtras
+                    .WaitHelpers
+                    .ExpectedConditions
+                    .ElementIsVisible(By.CssSelector("[class=\"AvatarClient__avatar--3TC7_\"]")));
+                Assert.AreEqual("https://newbookmodels.com/explore", driver.Url);
+                IWebElement avatarIconForExit = driver.FindElement(By.CssSelector("[class=\"AvatarClient__avatar--3TC7_\"]"));
+                avatarIconForExit.Click();
+                Actions action = new Actions(driver);
+                action.SendKeys(Keys.PageDown).Perform();
+                action.SendKeys(Keys.PageDown).Perform();
+                action.SendKeys(Keys.PageDown).Perform();
+                IWebElement exit = driver.FindElement(By.CssSelector("[class=\"link link_type_logout link_active\"]"));
+                exit.Click();
+                Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
+            }
+
+            [Test]
+            public void NewbookAppButtonLinkTest_LogIn()
+            {
+                IWebElement logInButton = driver.FindElement(By.CssSelector("[class *=\"Navbar__navLink--3lL7S Navbar__navLinkSingle--3x6Lx Navbar__login--28b35\"]"));
+                logInButton.Click();
+                driver.SwitchTo().Window(driver.WindowHandles.Last());
+                string title = driver.Title;
+                IWebElement NewbookAppLink = driver.FindElement(By.CssSelector("[class *= 'SignInPage__modelLink--22zhX']"));
+                NewbookAppLink.Click();
+                Assert.AreEqual("https://newbookmodels.com/auth/signin", driver.Url);
+            }
+
+            [Test]
+            public void NewbookAppButtonLinkTest_SignIn()
+            {
+                IWebElement SignUpButton = driver.FindElement(By.CssSelector("[class *='Navbar__signUp--12ZDV']"));
+                SignUpButton.Click();
+                IWebElement NewbookAppLink = driver.FindElement(By.CssSelector("[class *= 'SignupPageLayout__modelsLink--2zxUb']"));
+                NewbookAppLink.Click();
+                driver.SwitchTo().Window(driver.WindowHandles.Last());
+                string title = driver.Title;
+                Assert.AreEqual("https://apps.apple.com/us/app/newbook/id1316969583?ls=1", driver.Url);
+            }
+
+            //[TearDown]
+            //public void After()
+            //{
+            //    driver.Dispose();
+            //}
+        }
     }
-}
